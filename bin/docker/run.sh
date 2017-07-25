@@ -15,4 +15,4 @@ docker run \
   --volume=${BASEDIR}/../../config:/build/config \
   --env=ACL_ENABLED=0 \
   --env=DEBUG="chaturbate:*" \
-  eloello/kakakaka
+  eloello/kak
