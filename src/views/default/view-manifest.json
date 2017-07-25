@@ -1,0 +1,52 @@
+{
+  "views": [
+    {
+      "name": "default",
+      "title": "Default Overlay",
+      "description": "hello world",
+      "screenshot": "images/screenshot.png"
+    },
+    {
+      "name": "default-chat",
+      "title": "Chat",
+      "description": "hello world",
+      "screenshot": "images/screenshot-chat.png"
+    },
+    {
+      "name": "default-panel",
+      "title": "Panel",
+      "description": "hello world",
+      "screenshot": "images/screenshot-panel.png"
+    },
+    {
+      "name": "default-hearts",
+      "title": "Hearts",
+      "description": "hello world",
+      "screenshot": "images/screenshot-hearts.png"
+    },
+    {
+      "name": "default-info",
+      "title": "Info",
+      "description": "hello world",
+      "screenshot": "images/screenshot-info.png"
+    },
+    {
+      "name": "default-subject",
+      "title": "Subject",
+      "description": "hello world",
+      "screenshot": "images/screenshot-subject.png"
+    },
+    {
+      "name": "default-tip",
+      "title": "Tip",
+      "description": "hello world",
+      "screenshot": "images/screenshot-tip.png"
+    },
+    {
+      "name": "default-goal",
+      "title": "Goal",
+      "description": "hello world",
+      "screenshot": "images/screenshot-goal.png"
+    }
+  ]
+}
