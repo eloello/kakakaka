@@ -26,8 +26,10 @@
         width: 300px;
         margin-left: calc(50vw - 150px);
         text-align: center;
-        --paper-toast-background-color: #ff3;
         --paper-toast-color: #003;
+        background-image: var(--container-background, "default.png");
+        --container-background: url( 'http://graphicarea.net/wp-content/uploads/2015/12/Elite-Twitch-Alert-2.png');
+      
       }
     </style>
 
@@ -38,7 +40,7 @@
     </chaturbate-controller>
 
     <paper-spinner active$="{{!ready}}"></paper-spinner>
-    <paper-toast id="toast" vertical-align="bottom" duration="5000"></paper-toast>
+    <paper-toast id="toast" vertical-align="top" duration="5000"></paper-toast>
   </template>
 
   <script>
@@ -54,7 +56,7 @@
       _handleTip(e) {
         if (e.detail.amount >= 1) {
           this.$.toast.text =
-              `${e.detail.user.username} tipped ${e.detail.amount} tokens!`;
+              `${e.detail.user.username} tipped ${e.detail.amount} tokens! `;
           this.$.toast.open();
         }
       }
