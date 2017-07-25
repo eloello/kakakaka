@@ -1,6 +1,22 @@
 FROM mhart/alpine-node:8.1
 MAINTAINER Paul Allen paulallen87555@gmail.com
 USER root
+WORKDIR /
+
+COPY yarn.lock \
+     bower.json \
+     index.html \
+     index.js \
+     manifest.json \
+     package.json \
+     polymer.json \
+     service-worker.js \
+     sw-precache-config.js \
+     bin/ \
+     src/ \
+     /app/
+COPY bin/ /app/bin/
+COPY src/ /app/src/
 
 ENV NODE_ENV="production" \
     FRONTEND_BUNDLE="es6-bundled" \
@@ -29,12 +45,39 @@ RUN echo "http://dl-2.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories 
         mesa-dri-swrast \
         git \
         grep \
-        bash \
-        bash-completion
+        && \
+    sh /app/bin/build-prod.sh && \
+    mv /app/build /build
+
+RUN apk del --purge --force \
+        curl \
+        make \
+        gcc \
+        g++ \
+        python \
+        linux-headers \
+        binutils-gold \
+        gnupg \
+        git \
+        zlib-dev \
+        apk-tools \
+        libc-utils \
+        && \
+    rm -rf /app && \
+    rm -rf /var/lib/apt/lists/* \
+        /root/.cache \
+        /var/cache/apk/* \
+        /usr/local/share/.cache \
+        /usr/share/man \
+        /tmp/* \
+        /usr/lib/node_modules/npm/man \
+        /usr/lib/node_modules/npm/doc \
+        /usr/lib/node_modules/npm/html \
+        /usr/lib/node_modules/npm/scripts
 
 EXPOSE 8080
 EXPOSE 9090
-VOLUME /src
-WORKDIR /src
-CMD ["/bin/bash"]
-
+VOLUME /build/certs
+VOLUME /build/config
+WORKDIR /build
+CMD ["yarn", "start"]

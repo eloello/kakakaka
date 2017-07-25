@@ -15,4 +15,4 @@ docker run \
   --volume=${BASEDIR}/../../config:/build/config \
   --env=ACL_ENABLED=0 \
   --env=DEBUG="chaturbate:*" \
-  paulallen87/chaturbate-overlay-app
+  eloello/kakakaka
